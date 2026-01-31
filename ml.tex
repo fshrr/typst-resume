@@ -1,0 +1,229 @@
+%-------------------------
+% Resume in Latex
+% Author : Fahim Shahreer
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+\usepackage[default]{lato}
+
+% serif
+\usepackage{merriweather}
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\definecolor{cblack}{HTML}{1E314A}
+\definecolor{cblue}{HTML}{1D78E2}
+\definecolor{cgray}{HTML}{606B87}
+\color{cblack}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\raggedright\large\bfseries\merriweather\color{cblue}
+}{}{0em}{}[\color{cblue}\titlerule \vspace{0pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1\ifblank{#3}{}{\color{cgray}{ @ #3}}}\textit{\color{cgray}{ - #4}} &
+      \textit{\color{cgray}{#2}} \\
+    \end{tabular*}
+    \vspace{-5pt}
+}
+
+\newcommand{\educationSubheading}[5]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1 \color{cgray}{@ #3}}
+      \textit{\color{cgray}{- #4}} &
+      \vspace{2pt}
+      \textit{\color{cgray}{#2}} \\
+      \text{#5} \\
+    \end{tabular*}
+}
+
+% \newcommand{\resumeSubheading}[4]{
+%   \vspace{-2pt}\item
+%     \textbf{#1} \textbf{@ #3} \\
+%     \textit{\small #2} \textit{\small // #4} \vspace{-5pt}
+% }
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \emph{#2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+
+\begin{center}
+    \textbf{\Huge \merriweather \textcolor{cblue}{Fahim Shahreer}} \\ \vspace{6pt}
+    \small +1-647-975-9120 $|$ \href{mailto:x@x.com}{\uline{fahim.shahreer@gmail.com}} $|$  \href{https://www.linkedin.com/in/fahim-shahreer/}{\uline{linkedin/fahim-shahreer}} $|$ \href{https://github.com/summerlimes}{\uline{github/summerlimes}} $|$ \href{https://fahimshahreer.com}{\uline{fahimshahreer.com}}
+\end{center}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \item{
+     \textbf{Languages}{: JavaScript, TypeScript, Python, Go, Bash, SQL, HTML/CSS} \vspace{2pt} \\
+     \textbf{Frontend and Backend Libraries}{: Node.js, Django, FastAPI, React, Next.js, TanStack, D3.js, Nginx,  Jest} \vspace{2pt} \\
+     \textbf{ML Libraries}{: Numpy, Pandas, PyTorch, Langchain, LlamaIndex, Ollama, Google ADk, Scikit-image, Scikit-learn} \vspace{2pt} \\
+     \textbf{Infrastructure}{: Linux, AWS, GCP, Docker, Kubernetes, Ansible, PostgreSQL, DynamoDB, ElasticSearch, Redis}
+     \vspace{2pt} \\
+     \textbf{Tools}{: Claude Code, Cursor, Git, Vite}
+}
+ \end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Technical Cofounder}{December 2024 — Present}
+      {Echoes Events}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Cofounded a wellness startup applying lean methodology through 3 product iterations with 100+ market research interviews, transforming Echoes from wellness edtech into a Eventbrite alternative for spiritual events and retreats.}
+        \resumeItem{Built a Python microservice for LLM-assisted scraping across 400+ websites and public groups, generating keyword tags for event aggregation and recommendations with 95\% accuracy.}
+        \resumeItem{Developed and deployed TanStack Start full-stack platform on GCP powering event discovery, event posting, LLM chatbot, host profiles, buddy matching, recommendations, and seamless booking flows.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Freelance Technical Consultant}{January 2023 — Present}
+      {}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Engineered conversational chatbots for clients using LangChain, Google ADK, and foundational models (Gemini/GPT), implementing advanced prompt engineering for multi-level context-aware dialogue management.}
+        \resumeItem{Built RAG pipelines ingesting internal client data via LlamaIndex embeddings into PostgreSQL (pgvector), developing custom MCP servers to connect chatbots with these personalized knowledge bases..}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Full Stack Software Developer}{Jun 2022 — Jan 2023}
+      {Scotiabank}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Developed and maintained over 30 Backend for Frontend REST APIs in Next.js for e-transfer functionalities, serving over 10 million users, as part of Scotiabank's Web Modernization project.}
+        \resumeItem{Proposed and led the development of a shared React.js UI library for the monorepo incorporating over 20 components, leading to a 5\% code reduction in the repo and a 40\% decrease in recurring bugs in multiple teams.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Full Stack ML Software Developer}{Mar 2021 — Apr 2022}
+      {Surgical Safety Technologies}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Architected key features on a distributed video processing and AI analysis pipeline on AWS that handled over 200 hours of daily video uploads, transcoding, and AI analysis for 5 major US and Canadian hospitals.}
+        \resumeItem{Increased the average user task completion rate by 400\% through the development of 3 crucial dashboard UIs (admin, user and peer assessment dashboard) using React.js and D3.js}
+        \resumeItem{Reduced user-reported bugs by 40\% and cut system downtime by 100\%, by proposing and integrating feature flags for canary testing the deployment of new features.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Full Stack Software Developer}{Sep 2017 — Dec 2019}
+      {BlueFlower Media}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Bootstrapped a digital media startup, leading a cross-functional team of 4 developers and 2 designers to deliver comprehensive digital solutions for over 20 small businesses, using Node.js, React.js and Wordpress.}
+        \resumeItem{Designed and deployed a containerized load balanced web hosting infrastructure for low-traffic sites using Kubernetes and Nginx reverse proxy, reducing hosting costs by up to 70\%.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Contract Machine Learning Engineer}{May 2017 — Oct 2017}
+      {University of Toronto \& LAMAS}{Toronto, CA}
+      \resumeItemListStart
+        \resumeItem{Built an ML pipeline to transform 2D building models into 3D using a retrained convolutional neural network in PyTorch and Scikit-image for precise vectorization, reducing manual labeling by 12 hours per project.}
+        \resumeItem{Developed a Django application with a job scheduler that load balanced AWS GPU EC2 instances to manage over 50 Neural Style Transfer job requests per hour in workshops.}
+      \resumeItemListEnd
+
+    % \resumeSubheading
+    %   {Volunteer Computational Biology and Dev Lead}{May 2017 — Oct 2017}
+    %   {iGEM Toronto}{Toronto, CA}
+    %   \resumeItemListStart
+    %     \resumeItem{Engineered a Cordova iOS app incorporating a linear regression model and supervised protein structure optimization research for on-site surveying of gold mines, contributing to a bronze medal in iGEM Jamboree. Cordova, Scikit-image, PyRosetta, D3, Jmol, Jenkins}
+    %     \resumeItem{Directed the development of a brand style guide and a comprehensive wiki focusing on scientific data visualization.}
+    %   \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \educationSubheading
+      {Honours Bachelor of Science}{Class of 2021}
+      {University of Toronto}{Toronto, CA}
+      {\textbf{Major:} Statistics \textbf{Minor:} Mathematics, Biology}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
