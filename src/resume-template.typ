@@ -1,6 +1,8 @@
 // Resume Template - Typst
 // Styled to match LaTeX resume (Lato body, Merriweather headings)
 
+#import "@preview/fontawesome:0.6.0": *
+
 #let resume(
   name: "",
   phone: "",
@@ -39,8 +41,8 @@
   // Paragraph settings
   set par(justify: false)
 
-  // Links: underlined, inherit surrounding color
-  show link: underline
+  // Links: no underline in contact section, inherit surrounding color
+  show link: it => it
 
   // Section headings (level 2): Blue, Merriweather, bold, with rule
   show heading.where(level: 2): it => {
@@ -83,13 +85,13 @@
 
     let items = ()
 
-    if phone != "" { items.push(phone) }
-    if email != "" { items.push(link("mailto:" + email)[#email]) }
-    if linkedin != "" { items.push(link("https://" + linkedin)[#linkedin]) }
-    if github != "" { items.push(link("https://" + github)[#github]) }
-    if website != "" { items.push(link("https://" + website)[#website]) }
+    if phone != "" { items.push([#fa-phone(solid: true) #phone]) }
+    if email != "" { items.push([#fa-envelope(solid: true) #link("mailto:" + email)[#email]]) }
+    if linkedin != "" { items.push([#fa-linkedin() #link("https://linkedin.com/in/" + linkedin)[#linkedin]]) }
+    if github != "" { items.push([#fa-github() #link("https://github.com/" + github)[#github]]) }
+    if website != "" { items.push([#fa-link(solid: true) #link("https://" + website)[#website]]) }
 
-    items.join([ | ])
+    items.join(h(12pt))
   }
 
   v(4pt)
