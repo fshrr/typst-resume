@@ -4,8 +4,8 @@
   name: "Fahim Shahreer",
   phone: "+1-647-975-9120",
   email: "fahim.shahreer@gmail.com",
-  linkedin: "linkedin.com/in/fahim-shahreer",
-  github: "github.com/fshrr",
+  linkedin: "fahim-shahreer",
+  github: "fshrr",
   website: "fahimshahreer.com",
 )
 
