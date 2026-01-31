@@ -119,6 +119,7 @@
       ],
     )
   ]
+  v(-4pt)
 }
 
 // Education entry
@@ -177,6 +178,6 @@
 
 // Bullet list for experience items
 #let items(..bullets) = {
-  set list(indent: 1em, marker: [•], body-indent: 0.5em, spacing: 0.5em)
+  set list(indent: 1em, marker: [•], body-indent: 0.5em, spacing: 0.7em)
   list(..bullets.pos().map(b => [#b]))
 }
