@@ -90,9 +90,8 @@
 == Education
 
 #education(
-  school: "University of Toronto",
-  location: "Toronto, CA",
   degree: "Honours Bachelor of Science",
+  program: "Statistics",
+  school: "University of Toronto",
   dates: "Class of 2021",
-  details: [*Major:* Statistics *Minor:* Mathematics, Biology],
 )
