@@ -44,7 +44,6 @@
 
   // Section headings (level 2): Blue, Merriweather, bold, with rule
   show heading.where(level: 2): it => {
-    v(-3pt)
     block[
       #set text(
         fill: rgb(accent-color),
@@ -54,7 +53,7 @@
       )
       #it.body
       #v(-8pt)
-      #line(length: 100%, stroke: 1pt + rgb(accent-color))
+      #line(length: 100%, stroke: 0.6pt + rgb(accent-color))
     ]
     v(-2pt)
   }
@@ -107,11 +106,11 @@
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  v(6pt)
+  v(3pt)
   block[
     #set text(fill: rgb(primary-color))
     #grid(
-      columns: (1fr, auto),
+      columns: (0.8fr, auto),
       [
         #strong(title)#if company != "" [#text(fill: rgb(secondary-color))[ \@ #company]]#if location != "" [#text(fill: rgb(secondary-color), style: "italic")[ — #location]]
       ],
@@ -158,7 +157,7 @@
   category: "",
   items: "",
 ) = {
-  block(spacing: 0.4em)[
+  block(spacing: 0.7em)[
     #strong(category): #items
   ]
 }
@@ -178,9 +177,6 @@
 
 // Bullet list for experience items
 #let items(..bullets) = {
-  set list(indent: 0.15in, marker: [•], body-indent: 0.3em)
-  v(2pt)
-  for bullet in bullets.pos() {
-    list([#bullet])
-  }
+  set list(indent: 1em, marker: [•], body-indent: 0.5em, spacing: 0.5em)
+  list(..bullets.pos().map(b => [#b]))
 }
