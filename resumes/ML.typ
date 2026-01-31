@@ -1,4 +1,4 @@
-#import "resume-template.typ": *
+#import "../src/resume-template.typ": *
 
 #show: resume.with(
   name: "Fahim Shahreer",
