@@ -166,14 +166,26 @@
 // Project entry
 #let project(
   name: "",
-  technologies: "",
+  group: "",
+  dates: "",
   url: "",
   primary-color: "#1E314A",
+  secondary-color: "#606B87",
 ) = {
-  block(spacing: 0.65em)[
+  v(3pt)
+  block[
     #set text(fill: rgb(primary-color))
-    #strong(name)#if technologies != "" [ | #emph(technologies)]#if url != "" [ (#link("https://" + url)[#url])]
+    #grid(
+      columns: (0.8fr, auto),
+      [
+        #strong(name)#if group != "" [#text(fill: rgb(secondary-color))[ \@ #group]]#if url != "" [ (#link("https://" + url)[#url])]
+      ],
+      [
+        #text(fill: rgb(secondary-color), style: "italic")[#dates]
+      ],
+    )
   ]
+  v(-4pt)
 }
 
 // Bullet list for experience items
