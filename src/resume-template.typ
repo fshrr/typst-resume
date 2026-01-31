@@ -55,7 +55,7 @@
       #v(-8pt)
       #line(length: 100%, stroke: 0.6pt + rgb(accent-color))
     ]
-    v(-2pt)
+    v(2pt)
   }
 
   // Name heading (level 1): Centered, huge, blue, Merriweather
@@ -106,13 +106,12 @@
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  v(3pt)
   block[
     #set text(fill: rgb(primary-color))
     #grid(
       columns: (0.8fr, auto),
       [
-        #strong(title)#if company != "" [#text(fill: rgb(secondary-color))[ \@ #company]]#if location != "" [#text(fill: rgb(secondary-color), style: "italic")[ — #location]]
+        #strong(title)#if company != "" [#text(fill: rgb(secondary-color))[ \@ #strong(company)]]#if location != "" [#text(fill: rgb(secondary-color), style: "italic")[ — #location]]
       ],
       [
         #text(fill: rgb(secondary-color), style: "italic")[#dates]
@@ -125,30 +124,28 @@
 // Education entry
 #let education(
   school: "",
-  location: "",
   degree: "",
+  program: "",
+  gpa: "",
   dates: "",
-  details: "",
   courses: (),
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  block(spacing: 0.65em)[
+  block[
     #set text(fill: rgb(primary-color))
     #grid(
       columns: (1fr, auto),
       [
-        #strong(school)#text(fill: rgb(secondary-color))[ \@ #location]#text(fill: rgb(secondary-color), style: "italic")[ — #degree]
+        #strong(degree)#if program != "" [#strong[ in ]#strong(program)]#if school != "" [#text(fill: rgb(secondary-color))[ \@ #strong(school)]]#if gpa != "" [#text(fill: rgb(secondary-color), style: "italic")[ — (GPA: #gpa)]]
       ],
       [
         #text(fill: rgb(secondary-color), style: "italic")[#dates]
       ],
     )
-    #if details != "" [
-      #details
-    ]
     #if courses.len() > 0 [
-      #text(fill: rgb(secondary-color))[*Relevant Courses:* #courses.join(", ")]
+      #v(-5pt)
+      #text(fill: rgb(primary-color))[Relevant Courses: #courses.join(", ")]
     ]
   ]
 }
@@ -172,13 +169,12 @@
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  v(3pt)
   block[
     #set text(fill: rgb(primary-color))
     #grid(
       columns: (0.8fr, auto),
       [
-        #strong(name)#if group != "" [#text(fill: rgb(secondary-color))[ \@ #group]]#if url != "" [ (#link("https://" + url)[#url])]
+        #strong(name)#if group != "" [#text(fill: rgb(secondary-color))[ \@ #strong(group)]]#if url != "" [ (#link("https://" + url)[#url])]
       ],
       [
         #text(fill: rgb(secondary-color), style: "italic")[#dates]

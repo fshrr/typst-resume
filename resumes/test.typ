@@ -99,12 +99,41 @@
   [Developed a Django application with a job scheduler that load balanced AWS GPU EC2 instances to manage over 50 Neural Style Transfer job requests per hour in workshops.],
 )
 
+#project(
+	name: "Test project",
+	dates: "May 2017 — Oct 2017",
+)
+#items(
+  [Built an ML pipeline to transform 2D building models into 3D using a retrained convolutional neural network in PyTorch and Scikit-image for precise vectorization, reducing manual labeling by 12 hours per project.],
+  [Developed a Django application with a job scheduler that load balanced AWS GPU EC2 instances to manage over 50 Neural Style Transfer job requests per hour in workshops.],
+)
+
+#project(
+	name: "Test project",
+	group: "group name",
+	dates: "May 2017 — Oct 2017",
+)
+#items(
+  [Built an ML pipeline to transform 2D building models into 3D using a retrained convolutional neural network in PyTorch and Scikit-image for precise vectorization, reducing manual labeling by 12 hours per project.],
+  [Developed a Django application with a job scheduler that load balanced AWS GPU EC2 instances to manage over 50 Neural Style Transfer job requests per hour in workshops.],
+)
+
+
 == Education
 
 #education(
-  school: "University of Toronto",
-  location: "Toronto, CA",
   degree: "Honours Bachelor of Science",
+  program: "Statistics",
+  school: "University of Toronto",
   dates: "Class of 2021",
-  details: [*Major:* Statistics *Minor:* Mathematics, Biology],
+  courses: ("Data Science", "Computer Science", "Machine Learning"),
+  gpa: "9001/9000"
+)
+
+#education(
+  degree: "Honours Bachelor of Science",
+  program: "Statistics",
+  school: "University of Toronto",
+  dates: "Class of 2021",
+  courses: ("Data Science", "Computer Science", "Machine Learning")
 )
