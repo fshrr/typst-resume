@@ -14,12 +14,7 @@ Follow the installation instructions at https://github.com/typst/typst#installat
 
 2. Add your resume `.typ` file in the `resumes/` folder (use `ML.typ` as an example)
 
-3. Make the generate script executable:
+3. Generate PDFs:
    ```bash
-   chmod +x generate.sh
-   ```
-
-4. Run the executable with your name:
-   ```bash
-   ./generate.sh "John Doe"
+   python3 generate.py
    ```
