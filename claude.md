@@ -5,7 +5,10 @@ A Typst-based resume template and generator system for creating professional, st
 ## Project Structure
 
 ```
+├── pyproject.toml           # uv project config with dependencies
+├── uv.lock                  # Lockfile for reproducible installs
 ├── generate.py              # Python build script - compiles all .typ files to PDF
+├── watch.py                 # File watcher - auto-recompiles on .typ changes
 ├── src/
 │   └── resume-template.typ  # Main template with reusable components
 ├── resumes/                 # Resume source files (.typ) and generated PDFs
@@ -14,7 +17,12 @@ A Typst-based resume template and generator system for creating professional, st
 
 ## Build Process
 
-Run `python3 generate.py` to compile all `.typ` files in `resumes/` to PDF. Requires the Typst CLI to be installed.
+```bash
+uv run python3 generate.py   # One-time compile of all .typ files
+uv run python3 watch.py      # Watch mode - auto-recompiles on changes
+```
+
+Requires the Typst CLI to be installed.
 
 ## Template Components (src/resume-template.typ)
 
@@ -40,12 +48,14 @@ The template exports these functions:
 2. Import template: `#import "../src/resume-template.typ": *`
 3. Apply wrapper: `#show: resume.with(name: "...", email: "...", ...)`
 4. Add sections using `== Section Name` and template functions
-5. Run `python3 generate.py` to compile
+5. Run `uv run python3 generate.py` to compile (or use `watch.py` for live reload)
 
 ## Dependencies
 
 - **Typst CLI** - Document compiler (must be installed)
-- **Python 3** - For build script
+- **uv** - Python package manager (must be installed)
+- **Python 3.13+** - For build scripts
+- **watchfiles** - File watcher library (installed via uv)
 - **FontAwesome 0.6.0** - Typst package for icons (auto-fetched)
 
 ## Fonts
