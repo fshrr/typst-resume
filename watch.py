@@ -63,9 +63,12 @@ def main():
     print(f"Watching {resumes_dir} for changes...")
     print("Press Ctrl+C to stop.\n")
 
-    for changes in watch(resumes_dir, watch_filter=TypFilter()):
-        for change_type, path in changes:
-            compile_file(Path(path))
+    try:
+        for changes in watch(resumes_dir, watch_filter=TypFilter()):
+            for change_type, path in changes:
+                compile_file(Path(path))
+    except KeyboardInterrupt:
+        print("\nStopped.")
 
 
 if __name__ == "__main__":
