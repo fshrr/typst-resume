@@ -3,6 +3,17 @@
 
 #import "@preview/fontawesome:0.6.0": *
 
+// Spacing variables (all em-based for easy tuning)
+#let global-line-height = 0.7em
+#let point-gap = 0.85em              // between same-level lines (bullets, skill rows, etc.)
+#let entry-gap = 0.4em             // between entries (job to job, project to project)
+#let heading-underpoint-gap = -0.8em
+#let header-to-content = 0.8em     // section heading to first entry below
+#let contact-padding = 0.4em
+#let contact-item-gap = 1.2em
+#let bullet-indent = 1em
+#let bullet-text-indent = 0.5em
+
 #let resume(
   name: "",
   phone: "",
@@ -39,7 +50,7 @@
   )
 
   // Paragraph settings
-  set par(justify: false)
+  set par(justify: false, leading: global-line-height)
 
   // Links: no underline in contact section, inherit surrounding color
   show link: it => it
@@ -54,10 +65,9 @@
         size: 12pt,
       )
       #it.body
-      #v(-8pt)
+      #v(heading-underpoint-gap)
       #line(length: 100%, stroke: 0.6pt + rgb(accent-color))
     ]
-    v(2pt)
   }
 
   // Name heading (level 1): Centered, huge, blue, Merriweather
@@ -81,7 +91,7 @@
   {
     set align(center)
     set text(size: 9pt)
-    v(4pt)
+    v(contact-padding)
 
     let items = ()
 
@@ -91,10 +101,10 @@
     if github != "" { items.push([#fa-github() #link("https://github.com/" + github)[#github]]) }
     if website != "" { items.push([#fa-link(solid: true) #link("https://" + website)[#website]]) }
 
-    items.join(h(12pt))
+    items.join(h(contact-item-gap))
   }
 
-  v(4pt)
+  v(contact-padding)
 
   body
 }
@@ -108,8 +118,9 @@
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  block[
+  block(below: header-to-content)[
     #set text(fill: rgb(primary-color))
+    #v(entry-gap)
     #grid(
       columns: (0.8fr, auto),
       [
@@ -120,7 +131,6 @@
       ],
     )
   ]
-  v(-4pt)
 }
 
 // Education entry
@@ -146,8 +156,8 @@
       ],
     )
     #if courses.len() > 0 [
-      #v(-5pt)
-      #text(fill: rgb(primary-color))[Relevant Courses: #courses.join(", ")]
+      #v(-0.5em)
+      #text(fill: rgb(primary-color))[Coursework: #courses.join(", ")]
     ]
   ]
 }
@@ -157,7 +167,7 @@
   category: "",
   items: "",
 ) = {
-  block(spacing: 0.7em)[
+  block(spacing: point-gap)[
     #strong(category): #items
   ]
 }
@@ -171,7 +181,7 @@
   primary-color: "#1E314A",
   secondary-color: "#606B87",
 ) = {
-  block[
+  block(below: header-to-content)[
     #set text(fill: rgb(primary-color))
     #grid(
       columns: (0.8fr, auto),
@@ -183,11 +193,10 @@
       ],
     )
   ]
-  v(-4pt)
 }
 
 // Bullet list for experience items
 #let items(..bullets) = {
-  set list(indent: 1em, marker: [•], body-indent: 0.5em, spacing: 0.7em)
+  set list(indent: bullet-indent, marker: [•], body-indent: bullet-text-indent, spacing: point-gap)
   list(..bullets.pos().map(b => [#b]))
 }
