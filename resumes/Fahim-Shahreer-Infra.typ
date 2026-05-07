@@ -7,6 +7,8 @@
   linkedin: "fahim-shahreer",
   github: "fshrr",
   website: "fahimshahreer.com",
+  margin: 0.5in,
+  section-spacing: 1.4em,
 )
 
 == Technical Skills
@@ -43,7 +45,7 @@
 #items(
   [Built conversational AI chatbots for clients using LangChain and Google ADK with multi-turn context-aware dialogue.],
   [Developed RAG pipelines over client data using LlamaIndex and pgvector for personalized knowledge retrieval.],
-  [Deployed standalone MCP server processes exposing client knowledge bases as structured, tool-callable APIs — enabling agent workflows to query live data through a defined protocol layer.],
+  [Created custom MCP servers to connect chatbots with client knowledge bases, enabling tool-use and live data access.],
 )
 
 #experience(
@@ -66,8 +68,8 @@
 )
 #items(
   [Shipped and operated AWS infrastructure for a real-time surgical video AI pipeline — EKS-based inference, EC2, Kinesis, S3, and CloudFormation IaC — processing 200+ hrs/day across 5 hospitals.],
-  [Implemented serverless FastAPI endpoints for video upload and transcoding, ML inference, and dashboard data retrieval.],
-  [Provisioned and managed a 6-GPU on-prem GPU cluster for HIPAA-compliant surgical video model training, using Ansible to automate dataset collection from hospital cameras, data movement, and training job orchestration.],
+  [Implemented serverless FastAPI endpoints for video upload, transcoding, ML inference, and dashboard data retrieval.],
+  [Provisioned a 6-GPU on-prem GPU cluster for HIPAA-compliant model training, using Ansible to automate data collection.],
   [Engineered feature-flagged canary deploy pipelines for UIs and AI models, cutting production incidents 40%.],
 )
 
@@ -79,7 +81,7 @@
 )
 #items(
   [Worked with 20+ small businesses to scope needs, prototype quickly, and ship production web products end-to-end.],
-  [Built a Dockerized PHP hosting platform on VPS with Nginx load balancing, serving 20+ client sites at 70% lower hosting cost.],
+  [Built a Dockerized hosting solution on VPS with Nginx load balancing, serving 50+ microsites at 70% lower hosting cost.],
 )
 
 #experience(
@@ -89,8 +91,8 @@
   dates: "May 2017 — Oct 2017",
 )
 #items(
-  [Fine-tuned PyTorch KittiSeg for feature segmentation in architectural facade-to-3D pipeline, saving 12hrs/project.],
-  [Designed an auto-scaling AWS EC2 GPU cluster (1–6 self-provisioned instances) and load-balanced job scheduler for distributed ML inference workloads.],
+  [Fine-tuned KittiSeg in Torch for feature segmentation in architectural facade-to-3D pipeline, saving 12hrs/project.],
+  [Designed a job scheduler for auto-scaling AWS GPU EC2 cluster handling distributed ML inference workloads.],
 )
 
 == Selected Projects
@@ -102,7 +104,7 @@
 
 #project(
   name: "Protein Modelling @ iGEM Toronto",
-  description: "Set up a local GPU cluster to run PyRosetta-based protein structure modeling for a CRISPR gene expression system and paper-based biosensor.",
+  description: "PyRosetta protein structure modeling for CRISPR and gold binding proteins on a self-provisioned local GPU cluster.",
 )
 == Education
 
@@ -116,6 +118,6 @@
 #education(
   degree: "Master of Science",
   program: "Electrical and Computer Engineering",
-  school: "University of Colorado Boulder",
-  dates: "Expected 2027",
+  school: "Univ. of Colorado Boulder",
+  dates: "Expected 2028",
 )
