@@ -65,9 +65,10 @@
   dates: "Mar 2021 — Apr 2022",
 )
 #items(
-  [Shipped an AWS video AI pipeline processing 200+ hrs/day for 5 hospitals, with real-time inference and transcoding.],
-  [Built 3 React/D3 dashboards (admin/user/peer) using Kinesis streams and batch data, raising video uploads 400%.],
-  [Rolled out feature-flagged canary deploys for UIs and AI models, cutting production incidents 40%.],
+  [Shipped and operated AWS infrastructure for a real-time surgical video AI pipeline — EKS-based inference, EC2, Kinesis, S3, and CloudFormation IaC — processing 200+ hrs/day across 5 hospitals.],
+  [Implemented serverless FastAPI endpoints for video upload and transcoding, ML inference, and dashboard data retrieval.],
+  [Provisioned and managed a 6-GPU on-prem GPU cluster for HIPAA-compliant surgical video model training, using Ansible to automate dataset collection from hospital cameras, data movement, and training job orchestration.],
+  [Engineered feature-flagged canary deploy pipelines for UIs and AI models, cutting production incidents 40%.],
 )
 
 #experience(
