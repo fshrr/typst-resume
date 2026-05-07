@@ -79,7 +79,7 @@
 )
 #items(
   [Worked with 20+ small businesses to scope needs, prototype quickly, and ship production web products end-to-end.],
-  [Built a containerized, load-balanced hosting platform (Docker, Kubernetes, Nginx), reducing hosting costs 70%.],
+  [Built a Dockerized PHP hosting platform on VPS with Nginx load balancing, serving 20+ client sites at 70% lower hosting cost.],
 )
 
 #experience(
