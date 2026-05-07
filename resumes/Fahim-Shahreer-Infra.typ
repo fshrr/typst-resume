@@ -90,7 +90,7 @@
 )
 #items(
   [Fine-tuned PyTorch KittiSeg for feature segmentation in architectural facade-to-3D pipeline, saving 12hrs/project.],
-  [Built a Django web app for ML job submission and auto load-balanced GPU workloads across AWS EC2 instances.],
+  [Designed an auto-scaling AWS EC2 GPU cluster (1–6 self-provisioned instances) and load-balanced job scheduler for distributed ML inference workloads.],
 )
 
 == Selected Projects
