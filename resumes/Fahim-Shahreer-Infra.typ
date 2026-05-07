@@ -96,9 +96,8 @@
 == Selected Projects
 
 #project(
-  name: "Ledger - A Personal Tracker App",
-  // github: "fshrr/igem",
-  description: "A voice assisted personal tracker that uses LLMs to make tracking personal progress seamless and built in data analytics that allows presonal",
+  name: "Homelab",
+  description: "Multi-node bare-metal Kubernetes cluster on Proxmox, using Ansible, OpenTofu, Tailscale, Traefik, and Prometheus/Grafana to self-host and manage Ollama and FOSS services.",
 )
 
 #project(
