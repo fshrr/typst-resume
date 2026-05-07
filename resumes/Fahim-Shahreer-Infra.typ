@@ -43,7 +43,7 @@
 #items(
   [Built conversational AI chatbots for clients using LangChain and Google ADK with multi-turn context-aware dialogue.],
   [Developed RAG pipelines over client data using LlamaIndex and pgvector for personalized knowledge retrieval.],
-  [Created custom MCP servers to connect chatbots with client knowledge bases, enabling tool-use and live data access.],
+  [Deployed standalone MCP server processes exposing client knowledge bases as structured, tool-callable APIs — enabling agent workflows to query live data through a defined protocol layer.],
 )
 
 #experience(
