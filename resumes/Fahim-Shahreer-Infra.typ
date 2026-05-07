@@ -101,16 +101,9 @@
 )
 
 #project(
-  name: "Obisidian Tutor Plugin",
-  // github: "fshrr/igem",
-  description: "An auto-updating Obsidian chatbot tutor powered by a RAG pipeline over personal notes, generating spaced-repetition prompts to compound learning over time.",
+  name: "Protein Modelling @ iGEM Toronto",
+  description: "Set up a local GPU cluster to run PyRosetta-based protein structure modeling for a CRISPR gene expression system and paper-based biosensor.",
 )
-
-// #project(
-// 	name: "Protein Modelling @ iGEM Toronto",
-// 	// github: "fshrr/igem",
-// 	description: "Protein structure modelling using PyRosetta and machine learning methods for a paper-based gold biosensor and a light-inducible gene expression system using CRISPR. Bronze Medal.",
-// )
 == Education
 
 #education(
