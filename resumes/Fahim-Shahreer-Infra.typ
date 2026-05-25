@@ -1,4 +1,4 @@
-#import "../src/resume-template.typ": *
+#import "../templates/resume-template.typ": *
 
 #show: resume.with(
   name: "Fahim Shahreer",
@@ -15,7 +15,7 @@
 
 #skills(
   category: "Infrastructure & Dev Tools",
-  items: "AWS, Docker, Kubernetes, Ansible, OpenTofu, Linux, Prometheus, Grafana, PostgreSQL, Redis",
+  items: "AWS, Docker, Kubernetes, Ansible, Terraform, Linux, Prometheus, Grafana, PostgreSQL, Redis",
 )
 #skills(category: "Languages & Frameworks", items: "Python, Go, TypeScript, SQL, FastAPI, Next.js/React")
 #skills(category: "Machine Learning", items: "PyTorch, Langchain, LlamaIndex, Google ADK, Numpy, Pandas")
@@ -99,7 +99,7 @@
 
 #project(
   name: "Homelab",
-  description: "Multi-node bare-metal Kubernetes cluster on Proxmox, using Ansible, OpenTofu, Tailscale, Traefik, and Prometheus/Grafana to self-host and manage Ollama and FOSS services.",
+  description: "Multi-node bare-metal Kubernetes cluster on Proxmox, using Ansible, Terraform, Tailscale, Traefik, and Prometheus/Grafana to self-host and manage Ollama and FOSS services.",
 )
 
 #project(

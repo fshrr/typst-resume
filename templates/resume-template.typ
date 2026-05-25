@@ -95,9 +95,17 @@
 
     if phone != "" { items.push([#box(baseline: 0.05em)[#tabler-icon("phone")] #phone]) }
     if email != "" { items.push([#box(baseline: 0.05em)[#tabler-icon("mail")] #link("mailto:" + email)[#email]]) }
-    if linkedin != "" { items.push([#box(baseline: 0.05em)[#tabler-icon("brand-linkedin")] #link("https://linkedin.com/in/" + linkedin)[#linkedin]]) }
-    if github != "" { items.push([#box(baseline: 0.05em)[#tabler-icon("brand-github")] #link("https://github.com/" + github)[#github]]) }
-    if website != "" { items.push([#box(baseline: 0.05em)[#tabler-icon("home")] #link("https://" + website)[#website]]) }
+    if linkedin != "" {
+      items.push([#box(baseline: 0.05em)[#tabler-icon("brand-linkedin")] #link(
+          "https://linkedin.com/in/" + linkedin,
+        )[#linkedin]])
+    }
+    if github != "" {
+      items.push([#box(baseline: 0.05em)[#tabler-icon("brand-github")] #link("https://github.com/" + github)[#github]])
+    }
+    if website != "" {
+      items.push([#box(baseline: 0.05em)[#tabler-icon("home")] #link("https://" + website)[#website]])
+    }
 
     items.join(h(contact-item-gap))
   }
@@ -117,7 +125,10 @@
     #grid(
       columns: (0.8fr, auto),
       [
-        #text(fill: rgb(entry-color), size: entry-size, weight: "bold")[#title]#if company != "" [#text(fill: rgb(entry-color), size: entry-size)[ \@ #company]]#if location != "" [#text(fill: rgb(meta-color), size: date-location-size)[ — #location]]
+        #text(fill: rgb(entry-color), size: entry-size, weight: "bold")[#title]#if company != "" [#text(
+          fill: rgb(entry-color),
+          size: entry-size,
+        )[ \@ #company]]#if location != "" [#text(fill: rgb(meta-color), size: date-location-size)[ — #location]]
       ],
       [
         #text(fill: rgb(meta-color), style: "italic", size: date-location-size)[#dates]
@@ -139,7 +150,12 @@
     #grid(
       columns: (1fr, auto),
       [
-        #text(fill: rgb(entry-color), weight: "bold")[#degree]#if program != "" [#text(fill: rgb(entry-color), weight: "bold")[ in #program]]#if school != "" [#text(fill: rgb(entry-color))[ \@ #school]]#if gpa != "" [#text(fill: rgb(meta-color))[ — (GPA: #gpa)]]
+        #text(fill: rgb(entry-color), weight: "bold")[#degree]#if program != "" [#text(
+          fill: rgb(entry-color),
+          weight: "bold",
+        )[ in #program]]#if school != "" [#text(fill: rgb(entry-color))[ \@ #school]]#if gpa != "" [#text(
+          fill: rgb(meta-color),
+        )[ — (GPA: #gpa)]]
       ],
       [
         #text(fill: rgb(meta-color), style: "italic", size: date-location-size)[#dates]
@@ -147,7 +163,7 @@
     )
     #if courses.len() > 0 [
       #v(-0.5em)
-      Coursework: #courses.join(", ")
+      Relevant Coursework: #courses.join(", ")
     ]
   ]
 }
@@ -173,7 +189,14 @@
 ) = {
   block[
     #v(entry-gap)
-    #text(fill: rgb(entry-color), weight: "bold")[#name]#if group != "" [#text(fill: rgb(entry-color))[ \@ #group]]#if github != "" [ #link("https://github.com/" + github)[#box(baseline: 0.05em)[#tabler-icon("brand-github")]]]#if url != "" [ #link("https://" + url)[#box(baseline: 0.05em)[#tabler-icon("link")]]]#if dates != "" [#h(1fr)#text(fill: rgb(meta-color), style: "italic")[#dates]]#if description != "" [ — #description]
+    #text(fill: rgb(entry-color), weight: "bold")[#name]#if group != "" [#text(fill: rgb(entry-color))[ \@ #group]]#if (
+      github != ""
+    ) [ #link("https://github.com/" + github)[#box(baseline: 0.05em)[#tabler-icon("brand-github")]]]#if (
+      url != ""
+    ) [ #link("https://" + url)[#box(baseline: 0.05em)[#tabler-icon("link")]]]#if dates != "" [#h(1fr)#text(
+        fill: rgb(meta-color),
+        style: "italic",
+      )[#dates]]#if description != "" [ — #description]
   ]
 }
 

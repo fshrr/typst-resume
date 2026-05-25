@@ -1,4 +1,4 @@
-#import "../src/resume-template.typ": *
+#import "../templates/resume-template.typ": *
 
 #show: resume.with(
   name: "Fahim Shahreer",
@@ -11,69 +11,74 @@
 
 == Technical Skills
 
-#skills(category: "Languages", items: "JavaScript, TypeScript, Python, Go, Bash, SQL, HTML/CSS")
-#skills(category: "Frontend and Backend Libraries", items: "Node.js, Django, FastAPI, React, Next.js, TanStack, D3.js, Nginx, Jest")
-#skills(category: "ML Libraries", items: "Numpy, Pandas, PyTorch, Langchain, LlamaIndex, Ollama, Google ADK, Scikit-image, Scikit-learn")
-#skills(category: "Infrastructure", items: "Linux, AWS, GCP, Docker, Kubernetes, Ansible, PostgreSQL, DynamoDB, ElasticSearch, Redis")
-#skills(category: "Tools", items: "Claude Code, Cursor, Git, Vite")
+#skills(category: "Languages & Frameworks", items: "Python, TypeScript, Go, SQL, Next.js/React, FastAPI")
+#skills(category: "Machine Learning", items: "PyTorch, Langchain, LlamaIndex, Google ADK, Numpy, Pandas")
+#skills(
+  category: "Infrastructure & Dev Tools",
+  items: "AWS, Docker, Kubernetes, PostgreSQL, ElasticSearch, Redis, Claude Code",
+)
+
 
 == Experience
 
 #experience(
-  title: "Technical Cofounder",
+  title: "Cofounder and Lead Engineer",
   company: "Echoes Events",
   location: "Toronto, CA",
   dates: "December 2024 — Present",
 )
 #items(
-  [Cofounded a wellness startup applying lean methodology through 3 product iterations with 100+ market research interviews, transforming Echoes from wellness edtech into a Eventbrite alternative for spiritual events and retreats.],
-  [Built a Python microservice for LLM-assisted scraping across 400+ websites and public groups, generating keyword tags for event aggregation and recommendations with 95% accuracy.],
-  [Developed and deployed TanStack Start full-stack platform on GCP powering event discovery, event posting, LLM chatbot, host profiles, buddy matching, recommendations, and seamless booking flows.],
+  [Owned a wellness events platform end-to-end, using 100+ discovery interviews to frame problems and ship features.],
+  [Built a Python batch pipeline ingesting 400+ event sources into a unified schema with tags and embeddings.],
+  [Shipped a TanStack Start app on AWS covering host onboarding, event posting, and booking flows.],
+  [Implemented embedding-based event recommendations and buddy matching to personalize user discovery.],
 )
 
 #experience(
-  title: "Freelance Technical Consultant",
+  title: "Independent Machine Learning and AI Engineer",
   company: "",
   location: "Toronto, CA",
   dates: "January 2023 — Present",
 )
 #items(
-  [Engineered conversational chatbots for clients using LangChain, Google ADK, and foundational models (Gemini/GPT), implementing advanced prompt engineering for multi-level context-aware dialogue management.],
-  [Built RAG pipelines ingesting internal client data via LlamaIndex embeddings into PostgreSQL (pgvector), developing custom MCP servers to connect chatbots with these personalized knowledge bases.],
+  [Built conversational AI chatbots for clients using LangChain and Google ADK with multi-turn context-aware dialogue.],
+  [Developed RAG pipelines over client data using LlamaIndex and pgvector for personalized knowledge retrieval.],
+  [Created custom MCP servers to connect chatbots with client knowledge bases, enabling tool-use and live data access.],
 )
 
 #experience(
-  title: "Full Stack Software Developer",
+  title: "Full Stack Software Engineer",
   company: "Scotiabank",
   location: "Toronto, CA",
   dates: "Jun 2022 — Jan 2023",
 )
 #items(
-  [Developed and maintained over 30 Backend for Frontend REST APIs in Next.js for e-transfer functionalities, serving over 10 million users, as part of Scotiabank's Web Modernization project.],
-  [Proposed and led the development of a shared React.js UI library for the monorepo incorporating over 20 components, leading to a 5% code reduction in the repo and a 40% decrease in recurring bugs in multiple teams.],
+  [Delivered e-transfer send and receive UI, Scotiabank's most-used digital banking feature, serving 10M+ users.],
+  [Maintained 30+ BFF REST APIs in Next.js — trimming payloads, redacting PII, and decoupling frontend data needs.],
+  [Created a 20+ component shared React UI library, eliminating 5% redundant code and 40% recurring bugs.],
 )
 
 #experience(
-  title: "Full Stack ML Software Developer",
+  title: "Full Stack ML Engineer",
   company: "Surgical Safety Technologies",
   location: "Toronto, CA",
   dates: "Mar 2021 — Apr 2022",
 )
 #items(
-  [Architected key features on a distributed video processing and AI analysis pipeline on AWS that handled over 200 hours of daily video uploads, transcoding, and AI analysis for 5 major US and Canadian hospitals.],
-  [Increased the average user task completion rate by 400% through the development of 3 crucial dashboard UIs (admin, user and peer assessment dashboard) using React.js and D3.js],
-  [Reduced user-reported bugs by 40% and cut system downtime by 100%, by proposing and integrating feature flags for canary testing the deployment of new features.],
+  [Shipped an AWS video AI pipeline processing 200+ hrs/day for 5 hospitals, with real-time inference and transcoding.],
+  [Built 3 React/D3 dashboards (admin/user/peer) using Kinesis streams and batch data, raising video uploads 400%.],
+  [Rolled out feature-flagged canary deploys for UIs and AI models, cutting production incidents 40%.],
 )
 
 #experience(
-  title: "Full Stack Software Developer",
+  title: "Full Stack Software Engineer",
   company: "BlueFlower Media",
   location: "Toronto, CA",
   dates: "Sep 2017 — Dec 2019",
 )
 #items(
-  [Bootstrapped a digital media startup, leading a cross-functional team of 4 developers and 2 designers to deliver comprehensive digital solutions for over 20 small businesses, using Node.js, React.js and Wordpress.],
-  [Designed and deployed a containerized load balanced web hosting infrastructure for low-traffic sites using Kubernetes and Nginx reverse proxy, reducing hosting costs by up to 70%.],
+  [Worked with 20+ small businesses to scope needs, prototype quickly, and ship production web products end-to-end.],
+  [Built a containerized, load-balanced hosting platform (Docker, Kubernetes, Nginx), reducing hosting costs 70%.],
 )
 
 #experience(
@@ -83,10 +88,29 @@
   dates: "May 2017 — Oct 2017",
 )
 #items(
-  [Built an ML pipeline to transform 2D building models into 3D using a retrained convolutional neural network in PyTorch and Scikit-image for precise vectorization, reducing manual labeling by 12 hours per project.],
-  [Developed a Django application with a job scheduler that load balanced AWS GPU EC2 instances to manage over 50 Neural Style Transfer job requests per hour in workshops.],
+  [Fine-tuned PyTorch KittiSeg for feature segmentation in architectural facade-to-3D pipeline, saving 12hrs/project.],
+  [Built a Django web app for ML job submission and auto load-balanced GPU workloads across AWS EC2 instances.],
 )
 
+== Selected Projects
+
+#project(
+  name: "Ledger - A Personal Tracker App",
+  // github: "fshrr/igem",
+  description: "A voice assisted personal tracker that uses LLMs to make tracking personal progress seamless and built in data analytics that allows presonal",
+)
+
+#project(
+  name: "Obisidian Tutor Plugin",
+  // github: "fshrr/igem",
+  description: "An auto-updating Obsidian chatbot tutor powered by a RAG pipeline over personal notes, generating spaced-repetition prompts to compound learning over time.",
+)
+
+// #project(
+// 	name: "Protein Modelling @ iGEM Toronto",
+// 	// github: "fshrr/igem",
+// 	description: "Protein structure modelling using PyRosetta and machine learning methods for a paper-based gold biosensor and a light-inducible gene expression system using CRISPR. Bronze Medal.",
+// )
 == Education
 
 #education(
@@ -94,4 +118,11 @@
   program: "Statistics",
   school: "University of Toronto",
   dates: "Class of 2021",
+)
+
+#education(
+  degree: "Master of Science",
+  program: "Electrical and Computer Engineering",
+  school: "University of Colorado Boulder",
+  dates: "Expected 2027",
 )
