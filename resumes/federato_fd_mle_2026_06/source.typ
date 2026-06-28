@@ -1,0 +1,127 @@
+#import "/templates/active/resume-template.typ": *
+#import "/profile.typ": name, phone, email, linkedin, github, website
+
+#show: resume.with(
+  name: name,
+  phone: phone,
+  email: email,
+  linkedin: linkedin,
+  github: github,
+  website: website,
+  margin-x: 0.5in,
+  margin-y: 0.5in,
+  section-spacing: 2em,
+  font-size: 10pt,
+)
+
+== Technical Skills
+
+#skills(
+  category: "ML & AI",
+  items: "LangChain, LlamaIndex, PyTorch, RAG, MCP, pgvector, Google ADK, Arize AI",
+)
+#skills(
+  category: "Languages & Frameworks",
+  items: "Python (FastAPI), TypeScript (Next.js, React.js, Node.js), Go (net/http), SQL",
+)
+#skills(
+  category: "Infrastructure & Ops",
+  items: "AWS, Azure, Kubernetes, Docker, GitHub Actions, PostgreSQL, Redis",
+)
+
+
+== Experience
+
+#experience(
+  title: "Cofounder",
+  company: "Echoes Events",
+  location: "Toronto, CA",
+  dates: "December 2024 — Present",
+)
+#items(
+  [Owned a wellness events platform end-to-end, using 100+ discovery interviews to frame problems and ship features.],
+  [Built a Python batch pipeline ingesting 400+ event sources into a unified schema with tags and embeddings.],
+  [Shipped a TanStack Start app on Azure covering host onboarding, event posting, and booking flows.],
+  [Implemented embedding-based event recommendations and buddy matching to personalize discovery.],
+)
+
+#experience(
+  title: "Independent Machine Learning and AI Engineer",
+  company: "",
+  location: "Toronto, CA",
+  dates: "January 2023 — Present",
+)
+#items(
+  [Built conversational AI chatbots for clients using LangChain and Google ADK with multi-turn context-aware dialogue.],
+  [Developed RAG pipelines over client data using LlamaIndex and pgvector for personalized knowledge retrieval.],
+  [Created custom MCP servers to augemnt chatbots with up-to-date client knowledge bases and live data access.],
+)
+
+#experience(
+  title: "Full Stack Software Engineer",
+  company: "Scotiabank",
+  location: "Toronto, CA",
+  dates: "Jun 2022 — Jan 2023",
+)
+#items(
+  [Delivered e-transfer send and receive UI, Scotiabank's most-used digital banking feature, serving 10M+ users.],
+  [Maintained 30+ BFF REST APIs in Next.js — trimming payloads, redacting PII, and decoupling frontend data needs.],
+  [Created a 20+ component shared React UI library, eliminating 5% redundant code and 40% recurring bugs.],
+)
+
+#experience(
+  title: "Full Stack ML Engineer",
+  company: "Surgical Safety Technologies",
+  location: "Toronto, CA",
+  dates: "Mar 2021 — Apr 2022",
+)
+#items(
+  [Shipped an AWS video AI pipeline processing 200+ hrs/day for 5 hospitals, with real-time inference and transcoding.],
+  [Built 3 React/D3 dashboards (admin, user, peer) using Kinesis streams and batch data, raising video uploads 400%.],
+  [Rolled out feature-flagged canary deploys for UIs and AI models, cutting production incidents 40%.],
+  [Provisioned a 6-node on-prem GPU cluster for HIPAA-compliant model training using Ansible to automate node configuration, data collection, and job scheduling.],
+)
+
+#experience(
+  title: "Full Stack Software Engineer",
+  company: "BlueFlower Media",
+  location: "Toronto, CA",
+  dates: "Sep 2017 — Dec 2019",
+)
+#items(
+  [Worked with 20+ small businesses to scope needs, prototype quickly, and ship production web products end-to-end.],
+  [Built a containerized, load-balanced hosting platform (Docker, Kubernetes, Nginx), reducing hosting costs 70%.],
+)
+
+#experience(
+  title: "Contract Machine Learning Engineer",
+  company: "University of Toronto & LAMAS",
+  location: "Toronto, CA",
+  dates: "May 2017 — Oct 2017",
+)
+#items(
+  [Fine-tuned PyTorch KittiSeg for feature segmentation in architectural facade-to-3D pipeline, saving 12hrs/project.],
+  [Built a Django web app for ML job submission and auto load-balanced GPU workloads across AWS EC2 instances.],
+)
+
+== Education
+
+#education(
+  degree: "Master of Science",
+  program: "Electrical and Computer Engineering",
+  school: "Univ. of Colorado Boulder",
+  dates: "Expected 2027",
+  courses: (
+    "Linux System & Kernel Programming",
+    "Network Systems",
+    "Advanced Algorithms",
+  ),
+)
+
+#education(
+  degree: "Honours Bachelor of Science",
+  program: "Statistics",
+  school: "University of Toronto",
+  dates: "Class of 2021",
+  courses: ("Systems Programming", "Data Structures & Algorithms", "Linear Algebra", "Differential Equations"),
+)
