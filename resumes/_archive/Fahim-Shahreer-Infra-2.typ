@@ -7,7 +7,8 @@
   linkedin: "fahim-shahreer",
   github: "fshrr",
   website: "fahimshahreer.com",
-  margin: 0.5in,
+  margin-x: 0.5in,
+  margin-y: 0.5in,
   section-spacing: 1.3em,
 )
 
