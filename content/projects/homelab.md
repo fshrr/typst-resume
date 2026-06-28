@@ -17,20 +17,28 @@ type: Personal Infrastructure
 
 ## Bullets
 
-- Provisioned and manage a multi-node bare-metal Kubernetes cluster on Proxmox VE — covering node lifecycle, storage provisioning, and rolling cluster upgrades [infra]
-- Automated bare-metal node provisioning with netboot.xyz PXE boot, eliminating manual OS installation across cluster nodes [infra]
-- Automated cluster configuration and service deployment with Ansible playbooks and Terraform/OpenTofu modules, maintaining fully reproducible infrastructure state [infra]
-- Configured Traefik ingress with Tailscale mesh overlay for zero-trust service routing and secure remote access across the cluster [infra]
-- Deployed Prometheus/Grafana observability stack with custom dashboards for cluster health, node utilization, and workload alerting [infra]
-- Provisioned ZFS storage pools with NFS fileshare for persistent cluster storage across nodes [infra]
-- Managed secrets across services using Infisical, replacing plaintext config and manual secret rotation [infra]
-- Self-hosts Ollama for local LLM inference and a FOSS service stack, managing persistent volume claims and service configuration [infra] [ml]
-- Automated cluster CI/CD with GitHub Actions for service deployment and config validation [infra]
+- Provisioned and operate a multi-node bare-metal Kubernetes cluster on Proxmox VE, running Talos Linux VMs — an immutable, API-managed OS with no SSH access and zero config drift [infra]
+- Managed all VM and LXC provisioning declaratively with OpenTofu and the `bpg/proxmox` provider, enabling reproducible infrastructure state across hosts [infra]
+- Deployed ArgoCD for GitOps cluster management — all K8s workloads declared in git, with topology visualization and sync diffs for change tracking [infra]
+- Configured Cilium as the CNI with eBPF networking, replacing kube-proxy, enabling Gateway API routing and Hubble network observability [infra]
+- Managed secrets using Infisical as source of truth with External Secrets Operator (ESO) syncing into Kubernetes Secrets, replacing manual secret rotation [infra]
+- Provisioned ZFS storage pools on Proxmox hosts with virtio/virtiofs passthrough to VMs; deployed Longhorn for replicated app PVs with S3 snapshot backups [infra]
+- Deployed unified observability stack — Prometheus + Grafana + Loki + Hubble — covering cluster metrics, workload logs, and eBPF network flows [infra]
+- Wired GitHub Actions CI/CD: `tofu plan` on PR open, `tofu apply` on merge — infrastructure changes are gated behind code review [infra]
+- Configured Tailscale mesh overlay for zero-trust remote access to cluster services across hosts [infra]
+- Configured LXC containers with GPU passthrough (`/dev/dri/renderD128`) for hardware-accelerated media transcoding [infra]
+- Self-hosts Open-WebUI backed by local LLM inference, managing persistent volume claims and service configuration on Kubernetes [infra] [ml]
+- Automated LXC container bootstrap and configuration with Ansible playbooks [infra]
 
 ## Notes
-- PXE boot bullet is a strong bare-metal signal — lead with it for hardware-adjacent infra roles (e.g. Tenstorrent)
-- ZFS + NFS = storage layer; relevant for on-prem/bare-metal roles
-- Infisical = secrets management; niche pick, signals production-grade thinking
-- Ollama bullet weakest for pure infra roles; strongest for ML infra roles
-- GitHub Actions bullet: add only if you actually wired it to the homelab (confirm)
-- Node count: fill in exact number if you remember
+- Talos Linux bullet: stronger signal than old PXE boot for production-grade infra — leads with OS-level discipline, no-SSH, immutability; strong for hardware-adjacent roles (Tenstorrent)
+- ArgoCD GitOps bullet: strong for any DevOps/platform role — signals declarative ops maturity
+- Cilium bullet: eBPF/networking signal; relevant for network-aware infra and platform roles
+- Longhorn + ZFS bullet: covers both storage layers — app PVs and media; relevant for on-prem/bare-metal roles
+- ESO/Infisical bullet: production secrets hygiene; niche pick, signals thoughtful ops
+- GitHub Actions CI/CD: confirmed in repo (`tofu plan/apply` pipeline)
+- GPU passthrough (LXC): relevant for ML infra or hardware-adjacent roles (e.g. Tenstorrent)
+- Tailscale bullet: weaker standalone; combine with networking context if needed
+- Open-WebUI/LLM bullet: weakest for pure infra roles; use only for ML infra or AI platform roles
+- Node count: README says "multiple hosts" — fill in exact count if known
+- Removed (inaccurate): netboot.xyz PXE boot (not in current repo), Traefik ingress (not used — Cilium Gateway API replaced it)

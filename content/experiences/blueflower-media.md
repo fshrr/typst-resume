@@ -19,7 +19,7 @@ dates: Sep 2017 — Dec 2019
 ## Bullets
 
 - Built Dockerized hosting infrastructure on VPS with Nginx reverse proxy and load balancing, serving 50+ client microsites at 70% lower cost than managed hosting [infra]
-- Worked with 20+ small businesses to scope needs, prototype quickly, and ship production web products end-to-end [leadership] [product]
+- Bootstrapped a digital media startup, leading a cross-functional team of 4 engineers and 2 designers to ship web products for 20+ small businesses [leadership] [product]
 
 ## Notes
 - Infra bullet is the only one worth keeping for infra roles

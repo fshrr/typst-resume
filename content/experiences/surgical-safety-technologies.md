@@ -23,6 +23,7 @@ dates: Mar 2021 — Apr 2022
 - Built internal FastAPI services for video upload, transcoding, ML inference dispatch, and dashboard data retrieval, integrated with the EKS workload orchestration layer [api] [infra]
 - Engineered feature-flagged canary deploy pipelines for AI models and services, reducing production incidents by 40% [infra]
 - Implemented serverless FastAPI endpoints for video upload, transcoding, ML inference, and dashboard data retrieval [api]
+- Built 3 dashboard UIs (admin, user, peer assessment) with ReactJS and D3.js, improving task completion rate by 400% [product]
 - Shipped and operated AWS infrastructure for a real-time surgical video AI pipeline — EKS-based inference, EC2, Kinesis, S3, and CloudFormation IaC — processing 200+ hrs/day across 5 hospitals [infra]
 
 ## Notes
@@ -30,3 +31,4 @@ dates: Mar 2021 — Apr 2022
 - "Serverless FastAPI" and "integrated with EKS" are two framings of same work — pick one per resume
 - 6-node GPU cluster: Ansible used for node config and data collection automation
 - canary deploy stat (40%) is real
+- dashboard bullet (400% task completion) is product signal; drop for pure infra roles
