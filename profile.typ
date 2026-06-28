@@ -1,0 +1,6 @@
+#let name = "Fahim Shahreer"
+#let phone = "+1-647-975-9120"
+#let email = "fahim.shahreer@gmail.com"
+#let linkedin = "fahim-shahreer"
+#let github = "fshrr"
+#let website = "fahimshahreer.com"
