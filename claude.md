@@ -7,12 +7,23 @@ A Typst-based resume template and generator system for creating professional, st
 ```
 ├── pyproject.toml           # uv project config with dependencies
 ├── uv.lock                  # Lockfile for reproducible installs
-├── generate.py              # Python build script - compiles all .typ files to PDF
+├── profile.typ              # Personal info (name, email, phone, etc.) — imported by every resume
+├── generate.py              # Python build script - compiles all source.typ files to PDF
 ├── watch.py                 # File watcher - auto-recompiles on .typ changes
 ├── templates/
-│   └── resume-template.typ  # Main template with reusable components
-├── resumes/                 # Resume source files (.typ) and generated PDFs
-├── fonts/                   # Bundled fonts (Lato, Merriweather, FontAwesome)
+│   └── active/              # Style/layout templates (imported by every resume)
+│       ├── resume-template.typ     # Custom template with reusable components
+│       └── modern-cv-template.typ  # modern-cv style variant
+├── resumes/                 # Resume source files and generated PDFs
+│   ├── _templates/          # Base role templates (starter resumes) — copy & customize
+│   │   ├── ml/              # ML / AI Engineer base
+│   │   ├── ml_bio/          # ML Engineer, biotech focus
+│   │   └── fde/             # Forward Deployed Engineer base (modern-cv style)
+│   ├── _archive/            # Old resumes (not compiled)
+│   └── <company>_<role>_<date>/  # One folder per targeted application (lowercase, underscores)
+│       ├── source.typ       # Resume source (edit this)
+│       └── Firstname_Lastname_resume_<folder>.pdf  # Generated output
+├── fonts/                   # Bundled fonts (Lato, Poppins, tabler-icons)
 ├── content/                 # Master content library (source of truth for all resume content)
 │   ├── skills.md            # All skills with tags
 │   ├── experiences/         # One file per job — all possible bullets with tags
@@ -28,7 +39,7 @@ uv run python3 watch.py      # Watch mode - auto-recompiles on changes
 
 Requires the Typst CLI to be installed.
 
-## Template Components (templates/resume-template.typ)
+## Template Components (templates/active/resume-template.typ)
 
 The template exports these functions:
 
@@ -48,11 +59,22 @@ The template exports these functions:
 
 ## Creating a Resume
 
-1. Create a new `.typ` file in `resumes/`
-2. Import template: `#import "../templates/resume-template.typ": *`
-3. Apply wrapper: `#show: resume.with(name: "...", email: "...", ...)`
-4. Add sections using `== Section Name` and template functions
-5. Run `uv run python3 generate.py` to compile (or use `watch.py` for live reload)
+Start from a base role template instead of a blank file:
+
+1. Copy a base from `resumes/_templates/<role>/` to `resumes/<company>_<role>_<yyyy_mm>/`
+2. Tailor skills/bullets to the job post (use `content/` as the source of truth)
+3. Run `uv run python3 generate.py` to compile (or use `watch.py` for live reload)
+
+Each resume folder contains one `source.typ` file. The generated PDF is named
+`Firstname_Lastname_resume_<foldername>.pdf` — name comes from `profile.typ`.
+
+`profile.typ` at project root holds all personal info (name, phone, email, linkedin, github, website).
+Import it in `source.typ` with `#import "/profile.typ": name, phone, email, linkedin, github, website`.
+
+Both templates use `name:` (not `author:`). `linkedin` and `github` take handles only (not full URLs).
+
+All imports use absolute paths (`#import "/templates/active/resume-template.typ": *`),
+resolved against the project root via `--root`, so folder depth doesn't matter.
 
 ## Dependencies
 
@@ -89,10 +111,11 @@ Each bullet is tagged with one or more of:
 
 ### Workflow: Building a Targeted Resume
 1. Read the job posting to extract must-have signals
-2. Read `content/skills.md` and all relevant experience/project files
-3. Select bullets by tag match — prefer `[infra]` bullets for infra roles, etc.
-4. Create a new `.typ` file in `resumes/` using selected bullets
+2. Copy the closest base role template from `resumes/_templates/<role>/` to a new folder `resumes/<company>-<role>-<yyyy-mm>/`, and add `job.md` (posting + signals)
+3. Read `content/skills.md` and all relevant experience/project files
+4. Select bullets by tag match — prefer `[infra]` bullets for infra roles, etc. — and swap them into the copied resume
 5. Compile with `uv run python3 generate.py`
+6. Run the resume-reviewer skill against the compiled PDF and iterate until all rules pass
 
 ### Content Files
 - `content/skills.md` — all known skills organized by category with tags
@@ -103,6 +126,7 @@ Each bullet is tagged with one or more of:
 - `content/experiences/blueflower-media.md` — Docker/Nginx/VPS hosting; old, keep to 1 bullet
 - `content/experiences/uoft-lamas.md` — GPU cluster job scheduler; old, keep to 1 bullet
 - `content/projects/homelab.md` — strongest bare-metal/infra signal; K8s on Proxmox, PXE boot, ZFS/NFS, Ansible, Terraform, Tailscale, Infisical, Prometheus/Grafana
+- `content/projects/igem-toronto.md` — iOS app + wiki/D3; very old, biotech/research-adjacent roles only
 
 ### Notes
 - Each content file has a Notes section — read it before selecting bullets
@@ -114,3 +138,4 @@ Each bullet is tagged with one or more of:
 The following skills are available for use in this project:
 
 - `skills/resume-copywriter/SKILL.md` — Copywriting agent for resume bullets and project descriptions. Use when the user asks to write, edit, or improve resume content.
+- `skills/resume-reviewer/SKILL.md` — Post-compile PDF layout reviewer. Run after every generate.py compile to check: single page, no orphan skill wraps, no single-bullet experiences, project format consistency, no line waste, page utilization.
