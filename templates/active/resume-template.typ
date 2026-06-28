@@ -34,20 +34,22 @@
   github: "",
   website: "",
   paper: "us-letter",
-  margin: 0.6in,
+  margin-x: 0.6in,
+  margin-y: 0.5in,
   section-spacing: 2em,
+  font-size: body-size,
   body,
 ) = {
   set document(author: name, title: name)
 
   set page(
-    margin: margin,
+    margin: (x: margin-x, y: margin-y),
     paper: paper,
   )
 
   set text(
     font: body-font,
-    size: body-size,
+    size: font-size,
     fill: rgb(body-color),
     ligatures: false,
   )
@@ -98,7 +100,7 @@
     if linkedin != "" {
       items.push([#box(baseline: 0.05em)[#tabler-icon("brand-linkedin")] #link(
           "https://linkedin.com/in/" + linkedin,
-        )[#linkedin]])
+        )[in/#linkedin]])
     }
     if github != "" {
       items.push([#box(baseline: 0.05em)[#tabler-icon("brand-github")] #link("https://github.com/" + github)[#github]])
